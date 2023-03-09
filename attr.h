@@ -6,7 +6,7 @@
 #ifndef _ATTR_H
 #define _ATTR_H 1
 
-int attrscanf(int fd,char const *name,char const *format, ...);
-int attrprintf(int fd,char const *attr,char const *format, ...);
+int attrscanf(int fd, char const *name, char const *format, ...);
+int attrprintf(int fd, char const *attr, char const *format, ...);
 
 #endif

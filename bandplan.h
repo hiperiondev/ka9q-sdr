@@ -19,13 +19,13 @@
 #define CW 8
 
 struct bandplan {
-  double lower;
-  double upper;
-  int classes;
-  int modes;
-  char name[160];
+    double lower;
+    double upper;
+    int classes;
+    int modes;
+    char name[160];
 };
 
-struct bandplan *lookup_frequency(double);
+struct bandplan* lookup_frequency(double);
 
 #endif

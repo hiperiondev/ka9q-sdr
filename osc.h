@@ -7,18 +7,18 @@
 #include <complex.h>
 
 struct osc {
-  double freq;
-  double rate;
-  complex double phasor;
-  complex double phasor_step;
-  complex double phasor_step_step;
-  pthread_mutex_t mutex;
-  int steps; // Steps since last normalize
+    double freq;
+    double rate;
+    complex double phasor;
+    complex double phasor_step;
+    complex double phasor_step_step;
+    pthread_mutex_t mutex;
+    int steps; // Steps since last normalize
 };
 #endif
 
 // Osc functions
-void set_osc(struct osc *osc,double f,double r);
+void set_osc(struct osc *osc, double f, double r);
 complex double step_osc(struct osc *osc);
 void renorm_osc(struct osc *osc);
 int is_phasor_init(const complex double x);

@@ -30,13 +30,12 @@
 
 #include <inttypes.h>
 
-
 /** \brief FCD mode enumeration. */
 typedef enum {
-    FCD_MODE_NONE,  /*!< No FCD detected. */
-    FCD_MODE_BL,    /*!< FCD present in bootloader mode. */
-    FCD_MODE_APP    /*!< FCD present in aplpication mode. */
-} FCD_MODE_ENUM; // The current mode of the FCD: none inserted, in bootloader mode or in normal application mode
+    FCD_MODE_NONE, /*!< No FCD detected. */
+    FCD_MODE_BL,   /*!< FCD present in bootloader mode. */
+    FCD_MODE_APP   /*!< FCD present in aplpication mode. */
+} FCD_MODE_ENUM;   // The current mode of the FCD: none inserted, in bootloader mode or in normal application mode
 
 /** \brief FCD capabilities that depend on both hardware and firmware. */
 typedef struct {
@@ -48,27 +47,26 @@ typedef struct {
 extern "C" {
 #endif
 
-hid_device *fcdOpen(char *,int,int);
-void fcdClose(hid_device *);
+hid_device* fcdOpen(char*, int, int);
+void fcdClose(hid_device*);
 
 /* Application functions */
-FCD_MODE_ENUM fcdGetMode(hid_device *);
-FCD_MODE_ENUM fcdGetFwVerStr(hid_device *,char *str);
-FCD_MODE_ENUM fcdGetCaps(hid_device *,FCD_CAPS_STRUCT *fcd_caps);
-FCD_MODE_ENUM fcdGetCapsStr(hid_device *,char *caps_str);
-FCD_MODE_ENUM fcdAppReset(hid_device *);
-FCD_MODE_ENUM fcdAppSetFreqkHz(hid_device *,int nFreq);
-FCD_MODE_ENUM fcdAppSetFreq(hid_device *,int nFreq);
-FCD_MODE_ENUM fcdAppSetParam(hid_device *,uint8_t u8Cmd, uint8_t *pu8Data, uint8_t u8len);
-FCD_MODE_ENUM fcdAppGetParam(hid_device *,uint8_t u8Cmd, uint8_t *pu8Data, uint8_t u8len);
+FCD_MODE_ENUM fcdGetMode(hid_device*);
+FCD_MODE_ENUM fcdGetFwVerStr(hid_device*, char *str);
+FCD_MODE_ENUM fcdGetCaps(hid_device*, FCD_CAPS_STRUCT *fcd_caps);
+FCD_MODE_ENUM fcdGetCapsStr(hid_device*, char *caps_str);
+FCD_MODE_ENUM fcdAppReset(hid_device*);
+FCD_MODE_ENUM fcdAppSetFreqkHz(hid_device*, int nFreq);
+FCD_MODE_ENUM fcdAppSetFreq(hid_device*, int nFreq);
+FCD_MODE_ENUM fcdAppSetParam(hid_device*, uint8_t u8Cmd, uint8_t *pu8Data, uint8_t u8len);
+FCD_MODE_ENUM fcdAppGetParam(hid_device*, uint8_t u8Cmd, uint8_t *pu8Data, uint8_t u8len);
 
 /* Bootloader functions */
-FCD_MODE_ENUM fcdBlReset(hid_device *);
-  
-FCD_MODE_ENUM fcdBlErase(hid_device *);
-FCD_MODE_ENUM fcdBlWriteFirmware(hid_device *,char *pc, int64_t n64Size);
-FCD_MODE_ENUM fcdBlVerifyFirmware(hid_device *,char *pc, int64_t n64Size);
+FCD_MODE_ENUM fcdBlReset(hid_device*);
 
+FCD_MODE_ENUM fcdBlErase(hid_device*);
+FCD_MODE_ENUM fcdBlWriteFirmware(hid_device*, char *pc, int64_t n64Size);
+FCD_MODE_ENUM fcdBlVerifyFirmware(hid_device*, char *pc, int64_t n64Size);
 
 #ifdef __cplusplus
 }
