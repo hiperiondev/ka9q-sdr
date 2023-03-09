@@ -1,10 +1,10 @@
 # $Id: Makefile,v 1.127 2018/12/05 07:09:09 karn Exp karn $
-COPTS=-g -DNDEBUG=1 -O3 -march=native -std=gnu11 -pthread -Wall -funsafe-math-optimizations
+COPTS=-g -DNDEBUG=1 -O3 -march=native -std=gnu11 -pthread -Wall -funsafe-math-optimizations -Wno-strict-aliasing -msse3
 #COPTS=-g -march=native -std=gnu11 -pthread -Wall -funsafe-math-optimizations
 CFLAGS=$(COPTS) $(INCLUDES)
 BINDIR=/usr/local/bin
 LIBDIR=/usr/local/share/ka9q-radio
-LDLIBS=-lpthread -lbsd -lm
+LDLIBS=-lpthread -lbsd -lm  -lffww3 -lfftw3f_threads -lncurses -lusb-1.0
 EXECS=aprs aprsfeed funcube hackrf iqplay iqrecord modulate monitor opus opussend packet pcmsend radio pcmcat control
 AFILES=bandplan.txt help.txt modes.txt
 SYSTEMD_FILES=funcube0.service funcube1.service hackrf0.service radio34.service radio39.service packet.service aprsfeed.service opus-hf.service opus-vhf.service opus-hackrf.service opus-uhf.service

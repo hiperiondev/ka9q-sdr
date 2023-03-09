@@ -8,7 +8,7 @@
 #include "decimate.h"
 
 // Pick up vectorized versions if available
-#if defined(__SSSE3__)
+#if defined(__SSE3__)
 #pragma message "Vectorized versions of decimation filters will require SSSE3 or better to run"
 
   #include <x86intrin.h>  // GCC-compatible compiler, targeting x86/x86-64
